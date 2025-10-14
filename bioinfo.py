@@ -108,33 +108,40 @@ def distances_matrice(l: str|list):
     
     return tempList
 
+def main():
+    print("\nFonction — is adn:")
+    print(f"{is_adn('AC')} #A et C font partie des 4 caracter autoriser(A,C,G & T)")
+    print(f"{is_adn('AS')} >>> AS is not a valid dna sequence #S ne peut etre dans l'input")
+    #is_adn
 
-print("\nFonction — is adn:")
-print(f"{is_adn('AC')} #A et C font partie des 4 caracter autoriser(A,C,G & T)")
-print(f"{is_adn('AS')} >>> AS is not a valid dna sequence #S ne peut etre dans l'input")
-#is_adn
+    print("\nFonction — positions:")
+    print(f"{positions('ACGTACTCAC','AS')} >>> AS is not a valid dna sequence #S ne peut etre dans l'input")
+    print(f"{positions('ACGTACTCAC','AC')} #a indexe 0, 4 et 8 commence la combinaisons des caracter AC")
+    #positions
 
-print("\nFonction — positions:")
-print(f"{positions('ACGTACTCAC','AS')} >>> AS is not a valid dna sequence #S ne peut etre dans l'input")
-print(f"{positions('ACGTACTCAC','AC')} #a indexe 0, 4 et 8 commence la combinaisons des caracter AC")
-#positions
+    print("\nFonction — distances_h:")
+    print(f"{distance_h('GACGTAGCTCAC','AGATGTACGACT')} #Est le nombre de distance Hamming")
+    print(f"{distance_h('GACGTAGCTCACSSS','AGATGTACGACT')} #S ne peut etre dans l'input")
+    print(f"{distance_h('GACGTAGCTCACTTT','AGATGTACGACT')} #La longeur du premier input est different de la deuxieme")
+    #distances_h
 
-print("\nFonction — distances_h:")
-print(f"{distance_h('GACGTAGCTCAC','AGATGTACGACT')} #Est le nombre de distance Hamming")
-print(f"{distance_h('GACGTAGCTCACSSS','AGATGTACGACT')} #S ne peut etre dans l'input")
-print(f"{distance_h('GACGTAGCTCACTTT','AGATGTACGACT')} #La longeur du premier input est different de la deuxieme")
-#distances_h
+    print("\nFonction — distances_matrice:\n")
+    fnshdProd = distances_matrice(["AG", "AT", "GT", "ACG", "ACT" ])
+    for t in range(len(fnshdProd)):
+        print(fnshdProd[t])
+    print("\n#Ci-dessus represent la matrice de la list ['AG', 'AT', 'GT', 'ACG', 'ACT']\nqui a ete traité par la fonction distances_h()\n")
+    
+    fnshdProd = distances_matrice("AT")
+    for t in range(len(fnshdProd)):
+        print(fnshdProd[t])
+    print("\n#Ci-dessus represent la matrice de 'A' et 'T' qui a ete traité par la fonction distances_h()\n")
 
-print("\nFonction — distances_matrice:\n")
-fnshdProd = distances_matrice(["AG", "AT", "GT", "ACG", "ACT" ])
-for t in range(len(fnshdProd)):
-    print(fnshdProd[t])
+    fnshdProd = distances_matrice("A")
+    for t in range(len(fnshdProd)):
+        print(fnshdProd[t])
+    print("\n#Ci-dessus represent la list de 'A' qui a ete traité par la fonction distances_h()\n")
 
-fnshdProd = distances_matrice("AT")
-print("#Ci-dessus represent la matrice de la list ['AG', 'AT', 'GT', 'ACG', 'ACT']\nqui a ete traité par la fonction distances_h()\n")
-for t in range(len(fnshdProd)):
-    print(fnshdProd[t])
-print("#Ci-dessus represent la matrice de 'A' et 'T' qui a ete traité par la fonction distances_h()\n")
+    print(f"{distances_matrice('AS')} #S ne peut etre dans l'input")
+    #distances_matrice
 
-print(f"{distances_matrice('AS')} #S ne peut etre dans l'input")
-#distances_matrice
+main()
